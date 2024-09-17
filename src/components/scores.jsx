@@ -1,8 +1,8 @@
 function Scores({ score, bestScore }) {
   return (
     <div className="scoresContainer"> 
-      <p> Score: {score} </p>
-      <p> Best Score: {bestScore}</p>
+      <h2> Score: {score} </h2>
+      <h2> Best Score: {bestScore}</h2>
     </div>
   );
 }

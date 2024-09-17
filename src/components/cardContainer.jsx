@@ -16,14 +16,18 @@ function shuffle(array) {
 function CardContainer({ score, setScore, best, setBest }) {
   const [gifs, setGifs] = useState(false);
   const [clicked, setClicked] = useState([]);
-
+  const [active, setActive] = useState('active')
   function alreadyClicked(clicked, setClicked, url) {
     if (clicked.includes(url)) return true;
     else setClicked([...clicked, url]);
     return false;
   }
   function handleClick(item) {
-    setGifs([...shuffle(gifs)]);
+    setActive("inactive")
+    setTimeout(function(){
+      setActive("active")
+      setGifs([...shuffle(gifs)]);
+    }, 500)
     if (alreadyClicked(clicked, setClicked, item.images.original.url)) {
       setClicked([]);
       setScore(0);
@@ -43,10 +47,13 @@ function CardContainer({ score, setScore, best, setBest }) {
       .catch((error) => console.error(error));
   }, []);
 
+
+  
+
   return (
     <>
       {gifs && (
-        <div className="cardContainer">
+        <div className= {`cardContainer ${active}`}>
           {gifs.map((item) => {
             return (
               <Card key={item.id} item={item} handleClick={handleClick}></Card>
