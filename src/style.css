@@ -3,8 +3,29 @@ body {
     padding: 0;
 }
 
-.gif {
+.MemoryGameContainer {
+    display: flex;
+    justify-content: center;
+}
+
+.cardContainer {
+   display: flex;
+   flex-wrap: wrap;
+   gap: 10px;
+}
+.card {
     margin: 0;
     width: 250px;
-    height: 250px
+    height: 250px;
+    cursor:pointer;
+   
+}
+
+.scoresContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.scoresContainer p {
+    margin: 0;
 }
